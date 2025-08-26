@@ -1,0 +1,55 @@
+:host{
+    display: flex;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container{
+    margin: 15px;
+}
+.fl{
+    display: flex;
+    justify-content: space-between
+}
+.border-round {    
+    border: 1px solid black;
+    border-radius: 5px;    
+    box-shadow:
+    0 2px 4px 0 rgba(0, 0, 0, 0.2),
+    0 2.5rem 5rem 0 rgba(0, 0, 0, 0.1);
+}
+.header { 
+    background-color: rgb(227, 234, 234) ;
+    text-align: center;
+}
+.button-del {
+    border: 1px solid grey;
+    background-color: #d3d3d3;
+    border-radius: 5px;    
+    font-size: 20px;
+    text-align: center;
+}
+.button-add {
+    background-color: violet;
+    border-radius: 20px;
+    font-size: 20px;
+    text-align: center;
+    padding: 5px;
+}
+ul {    
+    background-color:rgb(232, 229, 229); 
+    border-radius: 5px;   
+    margin: 10px; 
+    display: flex;
+    justify-content: space-between;
+}
+li {    
+    margin-right: 10px;    
+}
+input {
+    font-size: 20px;
+    padding: 5px;    
+    border-radius: 20px;   
+    margin-right: 10px;
+    width: 70%;
+    padding-left: 20px;
+}
