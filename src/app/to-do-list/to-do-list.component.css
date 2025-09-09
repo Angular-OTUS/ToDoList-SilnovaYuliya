@@ -21,30 +21,32 @@
     background-color: rgb(227, 234, 234) ;
     text-align: center;
 }
-.button-del {
-    border: 1px solid grey;
-    background-color: #d3d3d3;
-    border-radius: 5px;    
+:host button {   
+    border: 0px;
     font-size: 20px;
+    color: white;
     text-align: center;
+    float: right;
+    margin-left: 10px;
+}
+.button-del {
+    background-color: red;
+    border-radius: 5px;    
 }
 .button-add {
-    background-color: violet;
+    background-color: green;
     border-radius: 20px;
-    font-size: 20px;
-    text-align: center;
-    padding: 5px;
 }
 ul {    
     background-color:rgb(232, 229, 229); 
     border-radius: 5px;   
     margin: 10px; 
-    display: flex;
+    /*display: flex;*/
     justify-content: space-between;
-}
+}/*
 li {    
     margin-right: 10px;    
-}
+}*/
 input {
     font-size: 20px;
     padding: 5px;    
@@ -52,4 +54,7 @@ input {
     margin-right: 10px;
     width: 70%;
     padding-left: 20px;
+}
+.disabled {
+    opacity: 0.5;
 }
