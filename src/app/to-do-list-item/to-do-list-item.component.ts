@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter, output  } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TItems } from '../Models/models';
 
 @Component({
   selector: 'app-to-do-list-item',
@@ -9,4 +10,15 @@ import { CommonModule } from '@angular/common';
 })
 export class ToDoListItemComponent {
 
+  @Input() itemsList: TItems| undefined;
+  @Output() dltItem = new EventEmitter<number>();
+
+  deleteItem(id:number): void {
+    if (this.itemsList)
+    {
+      this.dltItem.emit(id);
+      console.log(this.itemsList);
+    }
+  }
+  
 }

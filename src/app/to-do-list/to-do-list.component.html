@@ -3,11 +3,11 @@
     <div class="container border-round">
         <div class="container">
 
-            <ul>                
-                <li *ngFor="let listItem of items">      
-                    {{listItem.name}}
-                    <button class="button-del" (click)="delItem(listItem.id)">Удалить</button> 
-                </li>         
+            <ul>
+                    <app-to-do-list-item 
+                        *ngFor="let listItem of items; let i = index"
+                        [itemsList]="items[i]" (dltItem)="delItem($event)">
+                    </app-to-do-list-item> 
             </ul>
 
         </div>
