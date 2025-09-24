@@ -17,7 +17,7 @@ export class ToDoListItemComponent {
     if (this.itemsList)
     {
       this.dltItem.emit(id);
-      console.log(this.itemsList);
+      //console.log(this.itemsList);
     }
   }
   
