@@ -1,5 +1,5 @@
 
-export interface TItems = {
+export interface TItems {
     id: number,
     name: string
   }

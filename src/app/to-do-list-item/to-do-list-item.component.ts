@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, output  } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TItems } from '../Models/models';
+import { TItems } from '../Interface/Interface';
 
 @Component({
   selector: 'app-to-do-list-item',

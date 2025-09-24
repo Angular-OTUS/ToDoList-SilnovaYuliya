@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input'; 
 import {ToDoListItemComponent} from './../to-do-list-item/to-do-list-item.component';
-import { TItems } from '../Models/models';
+import { TItems } from '../Interface/Interface';
 
 @Component({
   selector: 'app-to-do-list',
