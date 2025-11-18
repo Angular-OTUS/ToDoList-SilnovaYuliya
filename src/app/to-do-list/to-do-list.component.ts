@@ -4,10 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input'; 
 import {ToDoListItemComponent} from './../to-do-list-item/to-do-list-item.component';
 import { TItems } from '../Interface/Interface';
+import { ButtonComponent } from '../button/button.component';
 
 @Component({
   selector: 'app-to-do-list',
-  imports: [CommonModule, FormsModule, MatInputModule, ToDoListItemComponent],
+  imports: [CommonModule, FormsModule, MatInputModule, ToDoListItemComponent, ButtonComponent],
   templateUrl: './to-do-list.component.html',
   styleUrl: './to-do-list.component.css'
 })
@@ -22,6 +23,7 @@ items: TItems[] = [
 ActiveAdd: boolean = false;
 newItem: string = '';
 idMax: number = 0;
+isLoading: boolean = true;
 
 addItem(textItem: string): void {
   if (this.ActiveAdd)
@@ -48,5 +50,11 @@ editInput(text: string): void {
   }
   else this.ActiveAdd = false;
 }  
+
+ngOnInit(): void {
+  setTimeout(() => {
+    this.isLoading = false;
+  }, 500);
+}
 
 }
