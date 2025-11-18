@@ -10,7 +10,7 @@ import { ButtonComponent } from '../button/button.component';
   selector: 'app-to-do-list',
   imports: [CommonModule, FormsModule, MatInputModule, ToDoListItemComponent, ButtonComponent],
   templateUrl: './to-do-list.component.html',
-  styleUrl: './to-do-list.component.css'
+  styleUrl: './to-do-list.component.css',
 })
 export class ToDoListComponent {
   
