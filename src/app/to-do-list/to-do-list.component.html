@@ -18,8 +18,7 @@
     </div>
         <div class="container fl">
             <input matInput type="text" placeholder="Добавить новое задание" [(ngModel)]="newItem" (ngModelChange)="editInput(newItem)">  
-            <app-button></app-button>
-            <button [ngClass]="{'disabled': !ActiveAdd}" class="button-add" (click)="addItem(newItem)">Добавить</button>
+            <app-button [ngClass]="{'disabled': !ActiveAdd}" class="button-add" (click)="addItem(newItem)" [titleButton]="'Добавить'"></app-button>
         </div>
 
     <p>

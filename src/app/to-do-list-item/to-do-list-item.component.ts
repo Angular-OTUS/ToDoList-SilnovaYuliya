@@ -1,10 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TItems } from '../Interface/Interface';
+import { ButtonComponent } from '../button/button.component';
 
 @Component({
   selector: 'app-to-do-list-item',
-  imports: [CommonModule],
+  imports: [CommonModule, ButtonComponent],
   templateUrl: './to-do-list-item.component.html',
   styleUrl: './to-do-list-item.component.css'
 })

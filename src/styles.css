@@ -26,13 +26,17 @@ body{
     background-color: rgb(227, 234, 234) ;
     text-align: center;
 }
-button {   
+app-button {   
     border: 0px;
     font-size: 20px;
     color: white;
     text-align: center;
+    display: flex;
+    align-items: center;
     float: right;
     margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .button-del {
     background-color: red;
