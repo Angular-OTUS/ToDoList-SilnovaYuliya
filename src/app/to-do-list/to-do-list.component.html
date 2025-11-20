@@ -2,25 +2,23 @@
     <h1 class="header">Список дел</h1>
     <div class="container border-round">
         <div class="container">
-
-            <ul>
-                
-                <div class="spinner" *ngIf="isLoading"></div>
-                <div *ngIf="!isLoading">              
-                    <app-to-do-list-item 
-                        *ngFor="let listItem of items; let i = index"
-                        [itemsList]="items[i]" (dltItem)="delItem($event)">
-                    </app-to-do-list-item> 
-                </div>     
+            <ul>                
+                @if(isLoading) {
+                    <div class="spinner"></div>
+                } @else {
+                    @for (listItem of items;track listItem.id) {
+                        <app-to-do-list-item
+                            [itemsList]="listItem" (dltItem)="delItem($event)">              
+                        </app-to-do-list-item> 
+                    }     
+                }   
             </ul>
-
         </div>
     </div>
         <div class="container fl">
             <input matInput type="text" placeholder="Добавить новое задание" [(ngModel)]="newItem" (ngModelChange)="editInput(newItem)">  
-            <app-button [ngClass]="{'disabled': !ActiveAdd}" class="button-add" (click)="addItem(newItem)" [titleButton]="'Добавить'"></app-button>
+            <app-button [style.opacity]="!ActiveAdd ? 0.5 : 1" class="button-add" (click)="addItem(newItem)" [titleButton]="'Добавить'"></app-button>
         </div>
-
     <p>
 
 </div>

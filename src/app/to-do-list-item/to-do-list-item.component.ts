@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TItems } from '../Interface/Interface';
 import { ButtonComponent } from '../button/button.component';
@@ -11,11 +11,12 @@ import { ButtonComponent } from '../button/button.component';
 })
 export class ToDoListItemComponent {
 
-  @Input() itemsList: TItems| undefined;
-  @Output() dltItem = new EventEmitter<number>();
+  itemsList = input<TItems>();
+  dltItem = output<number>();
+
 
   deleteItem(id:number): void {
-    if (this.itemsList)
+    if (this.itemsList())
     {
       this.dltItem.emit(id);
       //console.log(this.itemsList);

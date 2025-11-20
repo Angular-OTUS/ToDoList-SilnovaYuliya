@@ -32,14 +32,14 @@ addItem(textItem: string): void {
       return Math.max(max, item.id);
     }, 0)
     this.items.push({id:this.idMax+1, name: textItem})
-    console.log(this.items);
+    //console.log(this.items);
   }
 }
 delItem(id:number): void {
   if (this.items)
   {
     this.items = this.items.filter(item => item.id !== id)
-    console.log(this.items);
+    //console.log(this.items);
   }
 }
 
