@@ -6,10 +6,10 @@ import {ToDoListComponent} from './to-do-list/to-do-list.component';
   selector: 'app-root',
   imports: [
     //RouterOutlet, 
-    ToDoListComponent
+    ToDoListComponent,
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'ToDoList';

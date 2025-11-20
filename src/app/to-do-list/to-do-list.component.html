@@ -2,27 +2,23 @@
     <h1 class="header">Список дел</h1>
     <div class="container border-round">
         <div class="container">
-
-            <ul>
-                <li>Создать компонент</li>
-                <button class="button-del">Удалить</button>
+            <ul>                
+                @if(isLoading) {
+                    <div class="spinner"></div>
+                } @else {
+                    @for (listItem of items;track listItem.id) {
+                        <app-to-do-list-item
+                            [itemsList]="listItem" (dltItem)="delItem($event)">              
+                        </app-to-do-list-item> 
+                    }     
+                }   
             </ul>
-            <ul>
-                <li>Добавить компонент в основное приложение</li>
-                <button class="button-del">Удалить</button>
-            </ul>
-            <ul>
-                <li>Добавить разметку в шаблоны</li>
-                <button class="button-del">Удалить</button>                
-            </ul>
-
         </div>
     </div>
         <div class="container fl">
-            <input type="text" placeholder="Добавить новое задание">  
-            <button class="button-add">Добавить</button>
+            <input matInput type="text" placeholder="Добавить новое задание" [(ngModel)]="newItem" (ngModelChange)="editInput(newItem)">  
+            <app-button [style.opacity]="!ActiveAdd ? 0.5 : 1" class="button-add" (click)="addItem(newItem)" [titleButton]="'Добавить'"></app-button>
         </div>
-
     <p>
 
 </div>
