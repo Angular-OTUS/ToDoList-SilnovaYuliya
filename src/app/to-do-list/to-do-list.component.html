@@ -1,23 +1,38 @@
 <div class="container border-round">
     <h1 class="header">Список дел</h1>
     <div class="container border-round">
-        <div class="container">
+        <div class="container fl">
             <ul>                
                 @if(isLoading) {
                     <div class="spinner"></div>
                 } @else {
                     @for (listItem of items;track listItem.id) {
-                        <app-to-do-list-item
-                            [itemsList]="listItem" (dltItem)="delItem($event)">              
-                        </app-to-do-list-item> 
-                    }     
+                        <li [class.selected]="listItem.id == selectedItemId">
+                            <div class="fl2">
+                                <app-to-do-list-item
+                                    [itemsList]="listItem" (dltItem)="delItem($event)" 
+                                    (click)="selectItem(listItem.id)"
+                                    [appTooltipsItem]="listItem.description"
+                                    >              
+                                </app-to-do-list-item>  
+                            </div>                          
+                            <div class="fl3">
+                                @if(listItem.id == selectedItemId) {                
+                                    {{listItem.description}}             
+                                } 
+                            </div>
+                        </li>   
+                    }  
                 }   
             </ul>
         </div>
     </div>
         <div class="container fl">
-            <input matInput type="text" placeholder="Добавить новое задание" [(ngModel)]="newItem" (ngModelChange)="editInput(newItem)">  
-            <app-button [style.opacity]="!ActiveAdd ? 0.5 : 1" class="button-add" (click)="addItem(newItem)" [titleButton]="'Добавить'"></app-button>
+            <div class="fl2">
+                <input matInput type="text" placeholder="Добавить новое задание" [(ngModel)]="newItem" (ngModelChange)="editInput(newItem)">  
+                <textarea [(ngModel)]="newDescription" ></textarea>
+            </div>
+            <app-button [style.opacity]="!ActiveAdd ? 0.5 : 1" class="button-add" (click)="addItem(newItem, newDescription)" [titleButton]="'Добавить'"></app-button>
         </div>
     <p>
 

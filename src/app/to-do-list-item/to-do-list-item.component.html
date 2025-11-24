@@ -1,5 +1,3 @@
 @if(itemsList(); as item){
-    <li>  
         {{item.name}}<app-button class="button-del" (click)="deleteItem(item.id)" [titleButton]="'Удалить'"></app-button>
-    </li>
 }

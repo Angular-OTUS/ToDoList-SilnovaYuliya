@@ -1,37 +1,42 @@
-import { Component, Input} from '@angular/core';
+import { Component, output} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input'; 
 import {ToDoListItemComponent} from './../to-do-list-item/to-do-list-item.component';
 import { TItems } from '../Interface/Interface';
 import { ButtonComponent } from '../button/button.component';
+import { TooltipsItemDirective } from "../shared/tooltips-item.directive";
 
 @Component({
   selector: 'app-to-do-list',
-  imports: [CommonModule, FormsModule, MatInputModule, ToDoListItemComponent, ButtonComponent],
+  imports: [CommonModule, FormsModule, MatInputModule, ToDoListItemComponent, ButtonComponent, TooltipsItemDirective],
   templateUrl: './to-do-list.component.html',
   styleUrl: './to-do-list.component.css',
 })
 export class ToDoListComponent {
   
 items: TItems[] = [
-  {id: 1, name: 'Добавить картинки'},
-  {id: 2, name: 'Написать текст'},
-  {id: 3, name: 'Сложить числа'},
+  {id: 1, name: 'Добавить картинки', description:'Нарисовать и добавить картинки'},
+  {id: 2, name: 'Написать текст', description:'Придумать и написать текст'},
+  {id: 3, name: 'Сложить числа', description:'Вывести результат сложения'},
 ]
 
 ActiveAdd: boolean = false;
 newItem: string = '';
 idMax: number = 0;
 isLoading: boolean = true;
+newDescription: string = '';
+selectedItemId: number = 0;
+selectedItem: TItems[] = [];
+selecrtedDescription = output<string>();
 
-addItem(textItem: string): void {
+addItem(textItem: string, descriptionItem?: string): void {
   if (this.ActiveAdd)
   {
     this.idMax = this.items.reduce((max, item) => {
       return Math.max(max, item.id);
     }, 0)
-    this.items.push({id:this.idMax+1, name: textItem})
+    this.items.push({id:this.idMax+1, name: textItem, description: descriptionItem})
     //console.log(this.items);
   }
 }
@@ -55,6 +60,15 @@ ngOnInit(): void {
   setTimeout(() => {
     this.isLoading = false;
   }, 500);
+}
+
+selectItem(id: number): void {
+  if (this.selectedItemId != null) {
+    this.selectedItemId = id;
+    this.selectedItem = this.items.filter(item => item.id == id);
+  }
+  //console.log(this.selectedItemId);
+  //console.log(this.selectedItem);
 }
 
 }
