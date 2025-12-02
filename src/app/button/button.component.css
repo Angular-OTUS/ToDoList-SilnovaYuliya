@@ -1,0 +1,23 @@
+:host(app-button) {   
+    border: 0px;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    float: right;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+:host(.button-del) {
+    background-color: red;
+    border-radius: 5px;    
+}
+:host(.button-add) {
+    background-color: green;
+    border-radius: 20px;
+}
+.disabled {
+    opacity: 0.5;
+}

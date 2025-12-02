@@ -1,0 +1,5 @@
+@if(itemsList(); as item){
+        {{item.name}}<app-button class="button-del" (click)="deleteItem(item.id)" [titleButton]="'Удалить'"
+                [appTooltipsItem]="'Удалить запись'">
+        </app-button>
+}
